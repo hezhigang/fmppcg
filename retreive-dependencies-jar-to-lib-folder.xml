@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="fmppcg-getJars-tolib" default="resolve" basedir="." xmlns:ivy="antlib:org.apache.ivy.ant">
+	<property name="web.dir" value="web" />
+    <property name="lib.dir" value="lib" />
+	
+    <path id="lib.path.id">
+        <fileset dir="${lib.dir}" />
+	</path>
+	
+    <target name="resolve" description="--> retreive dependencies with ivy" depends="init">
+        <ivy:retrieve/>
+    	<echo>复制jar包到${web.dir}/WEB-INF/lib</echo>
+		<copy todir="${web.dir}/WEB-INF/lib">
+			<fileset dir="${lib.dir}" />
+		</copy>
+		<echo>清空临时lib目录${lib.dir}</echo>
+		<delete includeemptydirs="true">
+			<fileset dir="${lib.dir}" includes="**/*" />
+		</delete>
+    </target>
+	
+	<target name="clean-cache" description="--> clean the ivy cache">
+		<ivy:cleancache />
+	</target>
+	
+	<target name="init">
+		<echo>创建临时lib目录${lib.dir}</echo>
+		<mkdir dir="${lib.dir}" />
+		<echo>创建web的jar包lib目录${web.dir}/WEB-INF/lib</echo>
+		<mkdir dir="${web.dir}/WEB-INF/lib" />
+	</target>	
+</project>

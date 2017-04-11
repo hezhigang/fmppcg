@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="fmppcg" default="gen" basedir=".">
+	<property name="javaoutput.dir" value="src/com/anegr/" />
+	<property name="htmloutput.dir" value="web/WEB-INF/jsp" />
+	<property name="tempForOutput.dir" value="temp" />
+		
+	<taskdef name="fmpp" classname="fmpp.tools.AntTask">
+		<classpath>
+			<fileset dir="lib-FMPP">
+				<include name="bsh.jar" />
+				<include name="oro.jar" />
+				<include name="resolver.jar" />
+				<include name="freemarker.jar" />
+				<include name="fmpp.jar" />
+			</fileset>
+		</classpath>
+	</taskdef>
+	
+	<target name="init">
+	    <mkdir dir="${javaoutput.dir}" />
+		<mkdir dir="${htmloutput.dir}" />
+		<mkdir dir="${tempForOutput.dir}" />
+	</target>	
+
+	<target name="gen" depends="init">
+		<echo>simple code generator by FMPP，dao-service-Spring Controller-Bootstrap style JSP 相关代码生成</echo>
+		<fmpp sourceRoot="ftl/javaTemplates" sourceEncoding="UTF-8" outputRoot="${javaoutput.dir}" outputEncoding="UTF-8" logfile="log.fmpp" appendLogFile="true" data="model:xml(../../fmppConfig/javaMeta.xml)"/>
+		<fmpp sourceRoot="ftl/jspTemplates" sourceEncoding="UTF-8" outputRoot="${htmloutput.dir}" outputEncoding="UTF-8" logfile="log.fmpp" appendLogFile="true" data="model:xml(../../fmppConfig/webPageMeta.xml)" />
+		<fmpp sourceRoot="ftl/mybatisTemplates" sourceEncoding="UTF-8" outputRoot="${tempForOutput.dir}" outputEncoding="UTF-8" logfile="log.fmpp" appendLogFile="true" data="model:xml(../../fmppConfig/javaMeta.xml)"/>
+		<fmpp sourceRoot="ftl/configXmlTemplates" sourceEncoding="UTF-8" outputRoot="${tempForOutput.dir}" outputEncoding="UTF-8" logfile="log.fmpp" appendLogFile="true" data="model:xml(../../fmppConfig/javaMeta.xml)"/>		
+	</target>	
+
+	<target name="clean">
+		<delete includeemptydirs="true">
+			<fileset dir="${javaoutput.dir}" includes="**/*" />
+			<fileset dir="${htmloutput.dir}" includes="**/*" />
+			<fileset dir="${tempForOutput.dir}" includes="**/*" />
+		</delete>
+	</target>
+</project>

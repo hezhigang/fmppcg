@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="fmppcg-Scaffold">
+	<property name="javaoutput.dir" value="temp/com/anegr" />
+	<property name="htmloutput.dir" value="web/WEB-INF/jsp/temp" />
+	<property name="tempForOutput.dir" value="temp" />
+		
+	<taskdef name="fmpp" classname="fmpp.tools.AntTask">
+		<classpath>
+			<fileset dir="lib-FMPP">
+				<include name="bsh.jar" />
+				<include name="oro.jar" />
+				<include name="resolver.jar" />
+				<include name="freemarker.jar" />
+				<include name="fmpp.jar" />
+			</fileset>
+		</classpath>
+	</taskdef>
+
+	<target name="genJava">
+		<fmpp sourceRoot="ftl/javaTemplates" sourceEncoding="UTF-8" outputRoot="${javaoutput.dir}" outputEncoding="UTF-8" logfile="log.fmpp" appendLogFile="true" data="model:xml(../../fmppConfig/javaMeta.xml)"/>
+	</target>
+	
+	<target name="genJSP">
+		<fmpp sourceRoot="ftl/jspTemplates" sourceEncoding="UTF-8" outputRoot="${htmloutput.dir}" outputEncoding="UTF-8" logfile="log.fmpp" appendLogFile="true" data="model:xml(../../fmppConfig/webPageMeta.xml)" />
+	</target>	
+	
+	<target name="init">
+		<mkdir dir="${tempForOutput.dir}" />
+	</target>	
+	
+	<target name="genMybatisMappingFrag" depends="init">
+		<fmpp sourceRoot="ftl/mybatisTemplates" sourceEncoding="UTF-8" outputRoot="${tempForOutput.dir}" outputEncoding="UTF-8" logfile="log.fmpp" appendLogFile="true" data="model:xml(../../fmppConfig/javaMeta.xml)"/>
+	</target>
+
+	<target name="clean">
+		<delete includeemptydirs="true">
+			<fileset dir="${tempForOutput.dir}" includes="**/*" />
+		</delete>
+	</target>
+	
+	<target name="genSpringStruts2ConfigXmlFrag" depends="init">
+		<fmpp sourceRoot="ftl/configXmlTemplates" sourceEncoding="UTF-8" outputRoot="${tempForOutput.dir}" outputEncoding="UTF-8" logfile="log.fmpp" appendLogFile="true" data="model:xml(../../fmppConfig/javaMeta.xml)"/>
+	</target>	
+</project>

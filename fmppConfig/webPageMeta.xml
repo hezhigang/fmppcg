@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<htmls>
+	<htmlui>
+		<moduleName>诗人</moduleName>
+		<pojoName>Poet</pojoName>
+		<idField>id</idField>
+		<sortField>id</sortField>
+		<fields>
+			<field name="id" width="100" title="序号" type="text" />
+			<field name="name" width="200" title="姓名" type="text" />
+			<field name="createdAt" width="140" title="创建时间" type="datetime" />
+			<field name="updatedAt" width="140" title="修改时间" type="datetime" />	
+		</fields>
+		<queryfields>
+			<field name="name" title="姓名" cssclass="" validType="" />
+		</queryfields>
+	</htmlui>
+	<htmlui>
+		<moduleName>诗歌</moduleName>
+		<pojoName>Poem</pojoName>
+		<idField>id</idField>
+		<sortField>id</sortField>
+		<fields>
+			<field name="id" width="100" title="序号" type="text" />
+			<field name="poetId" width="100" title="诗人id" type="text" />
+			<field name="title" width="300" title="标题" type="text" />
+			<field name="content" width="300" title="内容" type="textarea" />
+			<field name="createdAt" width="140" title="创建时间" type="datetime" />
+			<field name="updatedAt" width="140" title="修改时间" type="datetime" />	
+		</fields>
+		<queryfields>
+			<field name="title" title="标题" cssclass="" validType="" />
+			<field name="content" title="内容" cssclass="" validType="" />
+		</queryfields>
+	</htmlui>
+</htmls>

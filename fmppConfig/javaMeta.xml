@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classes>
+	<class>
+		<name>Poet</name>
+		<oid type="Integer">id</oid>
+		<dbTable>poets</dbTable>
+		<tbkey>id</tbkey>
+		<author>hezhigang</author>
+		<comment>诗人</comment>
+		<queryfields>
+			<field name="name" type="String" />
+		</queryfields>	
+	</class>
+	<class>
+		<name>Poem</name>
+		<oid type="Integer">id</oid>
+		<dbTable>poetries</dbTable>
+		<tbkey>id</tbkey>
+		<author>hezhigang</author>
+		<comment>诗歌</comment>
+		<queryfields>
+			<field name="title" type="String" />
+			<field name="content" type="String" />
+		</queryfields>	
+	</class>		
+</classes>

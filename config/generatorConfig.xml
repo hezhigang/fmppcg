@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration>
+	<classPathEntry location="tool/mysql-connector-java-5.1.33-bin.jar" />
+	<context id="SqlServerTables" targetRuntime="MyBatis3">
+		<jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://localhost:3306/tang_poetry?useUnicode=true" userId="usr" password="pwd">
+		</jdbcConnection>
+		<javaTypeResolver>
+			<property name="forceBigDecimals" value="false" />
+		</javaTypeResolver>
+
+		<javaModelGenerator targetPackage="com.anegr.domain" targetProject="D:/hzgithub/fmppcg/src">
+			<property name="enableSubPackages" value="true" />
+			<property name="trimStrings" value="true" />
+			<property name="constructorBased" value="true"/>
+		</javaModelGenerator>
+
+		<sqlMapGenerator targetPackage="com.anegr.dao.maps" targetProject="D:/hzgithub/fmppcg/src">
+			<property name="enableSubPackages" value="true" />
+		</sqlMapGenerator>
+
+		<javaClientGenerator type="XMLMAPPER" targetPackage="com.anegr.dao" targetProject="D:/hzgithub/fmppcg/src">
+			<property name="enableSubPackages" value="true" />
+			<property name="rootInterface" value="com.anegr.dao.BaseDAO"/>
+		</javaClientGenerator>
+		
+		<!-- 诗人 -->
+		<table tableName="poets" domainObjectName="Poet">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+			<property name="enableSelectByExample" value="false" />
+			<property name="enableCountByExample" value="false" />
+			<property name="enableUpdateByExample" value="false" />
+			<property name="enableDeleteByExample" value="false" />
+			<generatedKey column="id" sqlStatement="JDBC"/>
+		</table>
+		
+		<!-- 诗人 -->
+		<table tableName="poetries" domainObjectName="Poem">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+			<property name="enableSelectByExample" value="false" />
+			<property name="enableCountByExample" value="false" />
+			<property name="enableUpdateByExample" value="false" />
+			<property name="enableDeleteByExample" value="false" />
+			<generatedKey column="id" sqlStatement="JDBC"/>
+		</table>		
+		
+	</context>
+</generatorConfiguration>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+    <context:component-scan base-package="com.anegr.controller" />
+    
+    <mvc:annotation-driven />
+    
+	<mvc:annotation-driven content-negotiation-manager="contentNegotiationManager" />
+	<bean id="contentNegotiationManager" class="org.springframework.web.accept.ContentNegotiationManagerFactoryBean">
+		<property name="mediaTypes">
+			<value>
+			    html=text/html
+				json=application/json
+				xml=application/xml
+			</value>
+		</property>
+	</bean>    
+
+	<bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">	  
+	  <property name="viewResolvers">
+	    <list>
+	      <bean class="org.springframework.web.servlet.view.BeanNameViewResolver"/>
+	      <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+	        <property name="prefix" value="/WEB-INF/jsp/"/>
+	        <property name="suffix" value=".jsp"/>
+	      </bean>
+	    </list>
+	  </property>	  
+	  <property name="defaultViews">
+	    <list>
+	      <bean class="org.springframework.web.servlet.view.json.MappingJackson2JsonView">
+			<property name="encoding">
+			    <value type="com.fasterxml.jackson.core.JsonEncoding">UTF8</value>
+			</property>
+			<property name="contentType" value="application/json;charset=UTF-8"/>	      
+	      </bean>
+	    </list>
+	  </property>
+	</bean>	
+	
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+	    <property name="maxUploadSize" value="10000000000000000"/>
+	    <property name="defaultEncoding" value="utf-8" />
+	</bean>
+	
+</beans>
