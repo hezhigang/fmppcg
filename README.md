@@ -37,7 +37,7 @@ mybatis-generator-core-1.3.3.jar can download from <http://www.mybatis.org/gener
 
 to download from <http://fmpp.sourceforge.net/>
 
-## fmppgc
+## fmppcodegen
 
 ### model file as xml config
 
@@ -50,7 +50,7 @@ ftl/*.ftl
 
 ## Ant build xml
 
-+ retreive-dependencies-jar-to-lib-folder.xml: retrive jar lib by ivy，ivy.xml need to modify by your environment and need
++ retreive-dependencies-jar-to-lib-folder.xml: retrive jar lib by ivy，ivy.xml need to modify by your environment and demand
 + ant_mybatis_generator.xml：produce MyBatis ORM Mapping files
 + codeGenerator.xml：code gen
 + CodeScaffold_FMPP_Ant.xml: partial code gen
