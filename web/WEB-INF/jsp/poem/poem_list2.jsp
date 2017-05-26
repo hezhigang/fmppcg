@@ -29,7 +29,7 @@
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
             <li><a href="#"><span class="glyphicon glyphicon-user" aria-hidden="true"> </span></a></li>
-            <li><a href="logout">logout</a></li>
+            <li><a href="../logout">logout</a></li>
           </ul>
         </div>
       </div>
@@ -39,9 +39,9 @@
       <div class="row">
         <div class="col-sm-3 col-md-2 sidebar">
           <ul class="nav nav-sidebar">
-            <li class="active"><a href="">诗歌</a></li>
+            <li class="active"><a href="#">诗歌</a></li>
             <li><a href="../poet/list2.do">诗人</a></li>
-            <li><a href="">功能模块3</a></li>
+            <li><a href="#">功能模块3</a></li>
           </ul>
         </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
@@ -52,7 +52,7 @@
               <thead>
                 <tr>
 					<th>序号</th>
-					<th>诗人id</th>
+					<%-- <th>诗人id</th> --%>
 					<th>标题</th>
 					<th>创建时间</th>
 					<th>修改时间</th>
@@ -63,7 +63,7 @@
 <c:forEach items="${pg.rows}" var="a" varStatus="status">
 <tr>
 						<td>${a.id}</td>
-						<td>${a.poetId}</td>
+						<%-- <td>${a.poetId}</td> --%>
 						<td>${a.title}</td>
 						<td><fmt:formatDate value="${a.createdAt}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
 						<td><fmt:formatDate value="${a.updatedAt}" pattern="yyyy-MM-dd HH:mm:ss"/></td>

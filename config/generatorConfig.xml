@@ -34,7 +34,7 @@
 			<generatedKey column="id" sqlStatement="JDBC"/>
 		</table>
 		
-		<!-- 诗人 -->
+		<!-- 诗歌 -->
 		<table tableName="poetries" domainObjectName="Poem">
 			<property name="ignoreQualifiersAtRuntime" value="true" />
 			<property name="enableSelectByExample" value="false" />

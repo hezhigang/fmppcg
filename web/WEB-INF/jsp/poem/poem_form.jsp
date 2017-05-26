@@ -28,7 +28,7 @@
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
             <li><a href="#"><span class="glyphicon glyphicon-user" aria-hidden="true"> </span></a></li>
-            <li><a href="logout">注销</a></li>
+            <li><a href="../logout">注销</a></li>
           </ul>
         </div>
       </div>

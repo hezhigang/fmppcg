@@ -30,7 +30,7 @@
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
             <li><a href="#"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></a></li>
-            <li><a href="logout">注销</a></li>
+            <li><a href="../logout">注销</a></li>
           </ul>
         </div>
       </div>
@@ -41,8 +41,8 @@
         <div class="col-sm-3 col-md-2 sidebar">
           <ul class="nav nav-sidebar">
             <li ><a href="../poem/list2.do">诗歌</a></li>
-            <li class="active"><a href="">诗人</a></li>
-            <li><a href="">功能模块3</a></li>
+            <li class="active"><a href="#">诗人</a></li>
+            <li><a href="#">功能模块3</a></li>
           </ul>
         </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
