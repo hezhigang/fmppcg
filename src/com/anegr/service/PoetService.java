@@ -16,15 +16,9 @@ public interface PoetService {
 	
 	void update(Poet poet);
 	
-	void deleteBatch(List list);  //批量删除
+	void deleteBatch(List list);
 	
 	int delete(String id);
 	
-    /**
-     * 组合条件查询
-     * @param paginator 分页对象
-     * @param poet 查询条件DTO对象
-     * @return Paginator
-     */	
 	Paginator search(Paginator paginator,Poet poet);
 }

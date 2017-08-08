@@ -47,7 +47,6 @@ public class PoetServiceImpl implements PoetService {
 	}
 
 	public void deleteBatch(List list) {
-	    //MyBatis的DAO接口PoetMapper需要实现以下方法
 		dao.deleteBatch(list);
 	}
 	
@@ -58,16 +57,14 @@ public class PoetServiceImpl implements PoetService {
 	}	
 
 	public Paginator search(Paginator paginator, Poet poet) {
-	    //进行查询条件处理
 		PoetExample example = new PoetExample();
 		String name = poet.getName();
 		if (name!=null && !"".equals(name))
 			example.or().andNameLike("%"+poet.getName()+"%");
-		example.setOrderByClause("id desc");
+		example.setOrderByClause("id asc");
 		PaginatorEx paginatorex = new PaginatorEx(paginator.getPage(),paginator.getRowsperpage());
 		paginatorex.setExample(example);
 		
-		//MyBatis的DAO接口PoetMapper需要实现以下方法
 		paginator.setTotal(dao.countForSearch(example));
 		paginator.setRows(dao.pagingQueryForSearch(paginatorex));
 		return paginator;		

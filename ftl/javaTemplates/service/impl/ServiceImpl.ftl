@@ -94,7 +94,7 @@ public class ${class.name}ServiceImpl implements ${class.name}Service {
 			example.or().and${f.@name?cap_first}EqualTo(${class.name?lower_case}.get${f.@name?cap_first}());
 	</#switch>		
 </#list>
-		example.setOrderByClause("${class.tbkey} desc");
+		example.setOrderByClause("${class.tbkey} asc");
 		PaginatorEx paginatorex = new PaginatorEx(paginator.getPage(),paginator.getRowsperpage());
 		paginatorex.setExample(example);
 		

@@ -32,8 +32,6 @@
 
 	<target name="clean">
 		<delete includeemptydirs="true">
-			<fileset dir="${javaoutput.dir}" includes="**/*" />
-			<fileset dir="${htmloutput.dir}" includes="**/*" />
 			<fileset dir="${tempForOutput.dir}" includes="**/*" />
 		</delete>
 	</target>

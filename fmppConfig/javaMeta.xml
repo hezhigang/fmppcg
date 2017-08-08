@@ -20,7 +20,6 @@
 		<comment>诗歌</comment>
 		<queryfields>
 			<field name="title" type="String" />
-			<field name="content" type="String" />
 		</queryfields>	
 	</class>		
 </classes>

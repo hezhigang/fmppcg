@@ -30,7 +30,6 @@
 		</fields>
 		<queryfields>
 			<field name="title" title="标题" cssclass="" validType="" />
-			<field name="content" title="内容" cssclass="" validType="" />
 		</queryfields>
 	</htmlui>
 </htmls>

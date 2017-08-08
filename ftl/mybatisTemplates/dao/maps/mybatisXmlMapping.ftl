@@ -8,8 +8,10 @@
   	select count(*) from ${item.dbTable}
   </select>
   <select id="pagingQuery" parameterType="com.anegr.dao.Paginator" resultMap="BaseResultMap">
+	select 
+	<include refid="Base_Column_List" />
 	<![CDATA[
-	select * from ${item.dbTable} order by ${item.tbkey} asc limit ${r"#{offset}"},${r"#{rowsperpage}"}	
+	 from ${item.dbTable} order by ${item.tbkey} asc limit ${r"#{offset}"},${r"#{rowsperpage}"}	
 	]]>
   </select>
   <delete id="deleteBatch" parameterType="java.util.List">
@@ -83,14 +85,17 @@
     </where>
   </sql>
   <select id="pagingQueryForSearch" parameterType="com.anegr.dao.PaginatorEx" resultMap="BaseResultMap">
-	<![CDATA[
-	select * from ${item.dbTable}
-	]]>
+	select 
+	<include refid="Base_Column_List" />
+	 from ${item.dbTable} 
     <if test="_parameter != null">
       <include refid="Search_Where_Clause" />
     </if>
+    <if test="orderByClause != null">
+      order by ${r"#{example.orderByClause}"}
+    </if>
     <![CDATA[
-    order by ${item.tbkey} asc limit ${r"#{offset}"},${r"#{rowsperpage}"}	
+     limit ${r"#{offset}"},${r"#{rowsperpage}"}	
 	]]>
   </select>
 </mapper>

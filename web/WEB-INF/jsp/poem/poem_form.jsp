@@ -10,40 +10,15 @@
     <title>demo - 诗歌</title>
     <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="../bootstrap/css/bootstrap-datetimepicker.min.css" rel="stylesheet" media="screen">
-    <link href="../css/dashboard.css" rel="stylesheet">   
+    <link href="../css/dashboard.css" rel="stylesheet">
   </head>
   
   <body>
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#">demo</a>
-        </div>
-        <div id="navbar" class="navbar-collapse collapse">
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="#"><span class="glyphicon glyphicon-user" aria-hidden="true"> </span></a></li>
-            <li><a href="../logout">注销</a></li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+  <%@ include file="/common/navbar.jsp" %>
 
     <div class="container-fluid">
       <div class="row">
-        <div class="col-sm-3 col-md-2 sidebar">
-          <ul class="nav nav-sidebar">
-            <li><a href="../poem/list2.do">诗歌</a></li>
-            <li><a href="../poet/list2.do">诗人</a></li>
-            <li><a href="">功能模块3</a></li>
-          </ul>
-        </div>
-        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+        <div class="main">
 <form id="poemForm" name="poemForm" class="form-horizontal" method="post" action="../poem/post.do">
 <input id="poem_id" type="hidden" name="id" <c:if test="${not empty poem}">value='<c:out value="${poem.id}"/>'</c:if> />
 <div class="form-group">
@@ -89,9 +64,9 @@
 	</div>
 </div>
 <div class="form-group">
-	<button type="button" class="btn btn-primary btn-block" id="submitBtn">提交</button>
+	<button type="button" class="btn btn-primary btn-block" id="submitBtn">submit</button>
 	<br/>
-	<button type="button" class="btn btn-default btn-block" id="resetBtn">清空</button>
+	<button type="button" class="btn btn-default btn-block" id="resetBtn">reset</button>
 </div>
 </form>        
         </div>
@@ -102,6 +77,7 @@
 <script src="../bootstrap/js/bootstrap.min.js"></script>
 <script src="../bootstrap/js/bootstrap-datetimepicker.min.js"></script>
 <script type="text/javascript" src="../bootstrap/js/bootstrap-datetimepicker.zh-CN.js"></script>
+<script src="//cdn.ckeditor.com/4.5.6/basic/ckeditor.js"></script>
 <%
 request.setAttribute("vEnter", "\r\n");
 %>
@@ -139,6 +115,8 @@ $(function(){
 			pickTime : false
 		});
 	});
+	
+		CKEDITOR.replace('poem_content');
 });
 </script>
 </html>

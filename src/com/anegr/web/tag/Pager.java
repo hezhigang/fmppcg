@@ -66,6 +66,7 @@ public class Pager extends TagSupport implements TryCatchFinally {
 						+ "f.submit();" + "}" 
 						+ "</script>");
 	
+				//sb.append("<div class=\"container\">");
 				sb.append("<nav><ul class=\"pagination pagination-lg\">");
 				int start = 1;
 				int end = totalPage;
@@ -123,8 +124,9 @@ public class Pager extends TagSupport implements TryCatchFinally {
 						sb.append("<li><a href='javascript:go(" + totalPage + ")'>尾页</a></li>");
 					}
 				}
-				sb.append("<li><a href='javascript:void(0)'>共" + totalPage + "页" + this.totalCount + "条</a></li>");
 				sb.append("</ul></nav>");
+				sb.append("<h4 style=\"margin:10px 0px;\">共" + this.totalCount + "条记录, 共" + totalPage + "页, "+pageSize+"条/页</h4>");
+				//sb.append("</div>");
 			}
 			else {
 				sb.append("<script type='text/javascript'>"
