@@ -67,7 +67,6 @@
 <script src="../bootstrap/js/bootstrap.min.js"></script>
 <script src="../bootstrap/js/bootstrap-datetimepicker.min.js"></script>
 <script type="text/javascript" src="../bootstrap/js/bootstrap-datetimepicker.zh-CN.js"></script>
-<script src="//cdn.ckeditor.com/4.5.6/basic/ckeditor.js"></script>
 <%
 request.setAttribute("vEnter", "\r\n");
 %>
@@ -103,7 +102,6 @@ $(function(){
 			pickTime : false
 		});
 	});
-	
 });
 </script>
 </html>

@@ -54,7 +54,7 @@
 </table>
 </div>
 <form method="post" id="poem_pagingForm" action="<%=path%>/poem/list2.do"></form>
-<pager:pagingbar pageSize="${pg.rowsperpage}" totalCount="${pg.total}" curPage="${pg.page}" barStyle="complex" formId="poem_pagingForm"/>
+<pager:pagingbar pageSize="${pg.rowsperpage}" totalCount="${pg.total}" curPage="${pg.page}" formId="poem_pagingForm"/>
         </div>
       </div>
     </div>
