@@ -4,6 +4,7 @@
 package com.anegr.service;
 
 import java.util.List;
+
 import com.anegr.dao.Paginator;
 import com.anegr.domain.Poet;
 
@@ -21,4 +22,6 @@ public interface PoetService {
 	int delete(String id);
 	
 	Paginator search(Paginator paginator,Poet poet);
+	
+	List<Poet> getPagingData(int start,int count);
 }

@@ -1,9 +1,11 @@
 package com.anegr.dao;
 
+import java.util.List;
+
+import org.apache.ibatis.annotations.Param;
+
 import com.anegr.domain.Poem;
 import com.anegr.domain.PoemExample;
-import java.util.List;
-import org.apache.ibatis.annotations.Param;
 
 public interface PoemMapper extends BaseDAO {
     /**
@@ -122,5 +124,7 @@ public interface PoemMapper extends BaseDAO {
     
     int countForSearch(PoemExample example);
     
-    List pagingQueryForSearch(PaginatorEx paginatorex);    
+    List pagingQueryForSearch(PaginatorEx paginatorex);
+    
+    List<Poem> selectPagingData(PaginatorLite paginatorlite);
 }

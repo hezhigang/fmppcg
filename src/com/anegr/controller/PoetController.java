@@ -11,7 +11,6 @@ import javax.annotation.Resource;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -19,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.anegr.Constants.PullSize;
 import com.anegr.dao.Paginator;
 import com.anegr.domain.Poet;
 import com.anegr.service.PoetService;
@@ -109,5 +109,26 @@ public class PoetController {
 		    service.insert(poet);
 		mav.setViewName("redirect:/poet/list2.do");
 		return mav;
-	}	
+	}
+	
+	@RequestMapping("/poet/list3.do")
+	public String index(Model model) {
+		model.addAttribute("poetlist", service.getPagingData(0, PullSize.POET));		
+		return "poet/poet_list3";
+	}
+	
+	@RequestMapping(value="/poet/more.do",method = RequestMethod.GET, produces="application/json")
+	@ResponseBody
+	public List<Poet> more(@RequestParam(value="start",required=false) Integer start, @RequestParam(value="count",required=false) Integer count) {
+        if(null==count){
+        	count = PullSize.POET;  
+        }  
+        if(count>PullSize.POET){
+        	count = PullSize.POET;  
+        }
+        if(null==start){
+        	start = 0;  
+        }
+		return service.getPagingData(start, count);
+	}
 }

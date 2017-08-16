@@ -1,0 +1,32 @@
+.content > .table-view:first-child {
+    margin-top: -2px;
+}
+
+.table-view-cell h1 {
+    font-size: 20px;
+    font-weight: normal;
+    padding: 20px 0 4px 0;
+    margin: 0;
+}
+
+.table-view-cell div p {
+	font-size: 16px;
+    font-weight: normal;
+    padding: 20px 0 4px 0;
+    margin: 0;	
+}
+
+input[type=search] {
+    border-radius: 8px;
+}
+
+.card {
+    margin-top:20px;
+}
+
+.component-fade-enter-active, .component-fade-leave-active {
+  transition: opacity .3s ease;
+}
+.component-fade-enter, .component-fade-leave-active {
+  opacity: 0;
+}

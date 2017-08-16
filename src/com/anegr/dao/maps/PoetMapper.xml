@@ -357,5 +357,10 @@
     <![CDATA[
      limit #{offset},#{rowsperpage}	
 	]]>
+  </select>
+  <select id="selectPagingData" parameterType="com.anegr.dao.PaginatorLite" resultMap="BaseResultMap">
+	select 
+	<include refid="Base_Column_List" /> 
+	 from poets order by id asc limit #{start},#{count}	
   </select>  
 </mapper>

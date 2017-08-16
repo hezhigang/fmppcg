@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 
 import com.anegr.dao.Paginator;
 import com.anegr.dao.PaginatorEx;
+import com.anegr.dao.PaginatorLite;
 import com.anegr.dao.PoemMapper;
 import com.anegr.domain.Poem;
 import com.anegr.domain.PoemExample;
@@ -68,5 +69,13 @@ public class PoemServiceImpl implements PoemService {
 		paginator.setTotal(dao.countForSearch(example));
 		paginator.setRows(dao.pagingQueryForSearch(paginatorex));
 		return paginator;		
+	}
+
+	@Override
+	public List<Poem> getPagingData(int start, int count) {
+		PaginatorLite paginatorlite = new PaginatorLite();
+		paginatorlite.setStart(start);
+		paginatorlite.setCount(count);
+		return dao.selectPagingData(paginatorlite);
 	}
 }
