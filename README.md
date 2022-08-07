@@ -1,4 +1,4 @@
-fmppcg
+FMPPCG
 ========
 
 A simple code generator for SpringMVC + MyBatis + jQuery + Bootstrap CRUD demo,  by FMPP & FreeMarker & Ant.
